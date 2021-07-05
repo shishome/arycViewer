@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+}
+
+[class*="col-"] {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
+.card-img-top {
+  position: relative;
+}
+
+.image-holder {
+  cursor: pointer;
+  transition: all 250ms;
+}
+.image-holder:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}

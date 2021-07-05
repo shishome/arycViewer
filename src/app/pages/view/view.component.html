@@ -1,0 +1,47 @@
+<div class="container" style="margin-bottom: 1.5em">
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="card">
+        <img [src]="buildUrl(selectedVariant.path.slice(4))" class="card-img-top" style="border-radius: .5rem .5rem 0px 0px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <dl>
+                <dt>Filename</dt>
+                <dd>{{selectedVariant.name}}</dd>
+                <dt>Size</dt>
+                <dd>{{selectedVariant.size}}</dd>
+              </dl>
+            </div>
+            <div class="col-md-6">
+              <a [href]="buildUrl(selectedVariant.path.slice(4))" target="_blank" class="btn d-block btn-primary">Download</a>
+              <a [href]="buildUrl(selectedVariant.path.slice(4))" target="_blank" class="btn d-block btn-warning" style="margin-top: .5rem">Share</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          Submission Info&nbsp;&nbsp;<span class="badge rounded-pill bg-danger" *ngIf="selectedToView?.r18">R18</span>&nbsp;
+          <span class="badge rounded-pill bg-dark" *ngIf="selectedToView?.hide">Hidden</span>
+        </div>
+        <div class="card-body">
+          <dl>
+            <dt style="margin-bottom: 0.5em;">Category</dt>
+            <dd style="margin-left: 1.5em;" >{{selectedToView?.category}}</dd>
+            <dt style="margin-bottom: 0.5em;">Year</dt>
+            <dd style="margin-left: 1.5em;" >{{selectedToView?.folder}}</dd>
+            <dt style="margin-bottom: 0.5em;">Artist</dt>
+            <dd style="margin-left: 1.5em;" >{{selectedToView?.artist}}</dd>
+            <dt style="margin-bottom: 0.5em;">Date Uploaded</dt>
+            <dd style="margin-left: 1.5em;" [innerText]="doMoment(selectedToView?.dateCreated)"></dd>
+            <dt style="margin-bottom: 1em;">Tags</dt>
+            <dd style="margin-left: 1.5em;" *ngFor="let tag of selectedToView?.tags">{{tag}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

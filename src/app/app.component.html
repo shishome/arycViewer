@@ -1,0 +1,88 @@
+<section class="container" *ngIf="!storage.isFullyLoaded && storage.notFirstTime">
+  <div class="row">
+    <div class="offset-2 col-md-8">
+      <div class="card" style="margin-top: 15%">
+        <div class="card-body">
+          <h1 style="font-size: 72px">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 24px">v4.0.1</span> </small> </h1>
+          <div>
+            <div class="row">
+              <div class="col-5" style="text-align: right">
+                <i class="bi bi-dash-circle-dotted" *ngIf="!storage.isArycListLoaded"></i>
+                <i class="bi bi-check2-circle" *ngIf="storage.isArycListLoaded"></i>
+              </div>
+              <div class="col-6">
+                Fetching Aryc List
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5" style="text-align: right">
+                <i class="bi bi-dash-circle-dotted" *ngIf="!storage.isArycMasterLoaded"></i>
+                <i class="bi bi-check2-circle" *ngIf="storage.isArycMasterLoaded"></i>
+              </div>
+              <div class="col-6">
+                Fetching Aryc Master File
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5" style="text-align: right">
+                <i class="bi bi-dash-circle-dotted" *ngIf="!storage.isArycReading"></i>
+                <i class="bi bi-circle-half" *ngIf="storage.isArycReading && !storage.isArycReadingDone"></i>
+                <i class="bi bi-check2-circle" *ngIf="storage.isArycReadingDone && storage.isArycReading"></i>
+              </div>
+              <div class="col-6">
+                Reading Master Contents List<span *ngIf="storage.isArycReading && !storage.isArycReadingDone"><br>File {{storage.arycListCurrent}} of {{storage.arycListTotal}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5" style="text-align: right">
+                <i class="bi bi-dash-circle-dotted" *ngIf="!storage.isCatagorizing"></i>
+                <i class="bi bi-circle-half" *ngIf="storage.isCatagorizing"></i>
+                <i class="bi bi-check2-circle" *ngIf="storage.isCatagorizing && storage.isFullyLoaded"></i>
+              </div>
+              <div class="col-6">
+                Categorizing Files
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section *ngIf="storage.isFullyLoaded && storage.notFirstTime">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-yuuk">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:///" routerLink="/">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 8px">v4.0.1</span></small></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:///" routerLink="/">Index</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">By Character</a>
+              <div class="dropdown-menu" style="height: 200px; overflow: scroll">
+                <a class="dropdown-item" *ngFor="let char of storage.arycIndex.categories" href="javascript:///" routerLink="/character/{{char.name}}">{{char.name}}</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:///" routerLink="/about">About</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <router-outlet></router-outlet>
+</section>
+<app-first-time *ngIf="!storage.notFirstTime"></app-first-time>
+

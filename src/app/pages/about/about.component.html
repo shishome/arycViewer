@@ -1,0 +1,62 @@
+<section class="container">
+  <div class="card" style="margin-bottom: 1.5em;">
+    <div class="card-header">
+      About the Archive
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <img src="/assets/img/1.png" class="img-fluid" style="border-radius: 25%; border: 5px lightgray solid;">
+        </div>
+         <div class="col-sm-12 col-md-9">
+           <h3>The Art Archive was created to house all the art I've commissioned over the years.</h3>
+           <p>It's pretty self explanatory, but there are over {{storage.arycListTotal}} files in this repository that require storage space, active upkeep, and most importantly... a filter for 18+ and unmentionables. This place really isn't meant to be a super flashy archive, but a programming challange to myself!<br><br>v1 of the Archive was just an Apache directory containing subdirectories, later migrating over to an NGINX based directory (what an upgrade!). v2 was a full django-based application which required me to upload everything to a web server host and specify media files for consumption. It was a great system, but really hard to keep up to date overall. However, it eventually collapsed when my upstream datacenter provider lost the disk containing my data, and I had no backups. v3 was similar to v2, but it pulled directly from a caching server hosted in my basement. This was better, but was far more convoluted. </p>
+         </div>
+      </div>
+      <h4>v4: Aryc</h4>
+      <p>As time went on, it just became too much for me to upload, link, and move everything to and from the clunky v3 system. So, for v4 I went back to directories. But not just that, I created Aryc, which stands for.. something clever I think.. Art RepositorY Commands, I genuinely forget. Aryc scans the directory tree in the server, which is catagorized in a very specific manner, to retrieve and store meta information about the system. From what year it was created to who made it to what character its for. This data is then stored in YAML files adjacent to the directory so the data can then be read by a viewing software. During this time I learned how to use Node and Angular, which is what a majority of this whole system is powered by. It's essentially a flat-file database that updates itself.</p>
+      <h4>Why share all this?</h4>
+      <p>TBH, development on this Aryc system took about 6 months of my life between starting a new job and other projects, so to see it completed makes me really proud. And, I hope it inspires other people to make neat software to manage their art too! Which is why a lot of this system is open source for anyone to peruse! You can find links to the repos down in the credits for the main code repository and credits for each individual piece!</p>
+      <h4>I have questions about things. How do I get in touch?</h4>
+      <p>I'm on <a href="https://github.com/shishome" target="_blank">GitHub</a>, <a href="https://t.me/yuukari" target="_blank">Telegram</a>, and <a href="https://twitter.com/fluffsune" target="_blank">Twitter</a>!</p>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom: 1.5em;">
+    <div class="card-header">
+      Archive Tools
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3"><a href="javascript:///" class="btn btn-primary d-block" (click)="storage.notFirstTime = false">Change R18/Display Preferences</a> </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          About ArycViewer
+        </div>
+        <div class="card-body">
+          ArycViewer is a NodeJS-based Angular application that fetches YAML records containing the metadata of each art piece, catagorizes, and displays the art for view in a gallery format. It was created with @angular/cli.
+
+          <markdown [src]="'/assets/credits/aryc-viewer.md'"></markdown>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          About Aryc
+        </div>
+        <div class="card-body">
+          Aryc is a NodeJS-based Command-line application that compiles YAML records containing the metadata of each art piece in the gallery. It was created with OCLIF.
+
+          <markdown [src]="'/assets/credits/aryc.md'"></markdown>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
