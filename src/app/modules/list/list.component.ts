@@ -46,7 +46,7 @@ export class ListComponent implements OnInit {
   }
 
   loadPage(i: number) {
-
+    this.page = i;
   }
 
   loadView(n: Submission) {
