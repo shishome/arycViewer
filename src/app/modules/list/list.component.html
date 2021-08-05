@@ -16,7 +16,7 @@
       <a class="page-link" (click)="loadPage(i)" href="javascript:///">{{i + 1}}</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="javascript:///" (click)="loadPage(this.page + 1)" *ngIf="this.page != this.storage.pages.length">&raquo;</a>
+      <a class="page-link" href="javascript:///" (click)="loadPage(this.page + 1)" *ngIf="this.page != this.storage.pages.length - 1">&raquo;</a>
     </li>
   </ul>
 </div>
