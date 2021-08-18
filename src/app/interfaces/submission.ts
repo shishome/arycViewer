@@ -11,4 +11,5 @@ export interface Submission {
   artist: string;
   url: string;
   dateCreated: number;
+  croppedFile: string;
 }
