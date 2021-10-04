@@ -20,6 +20,25 @@
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-hover">
+            <tr>
+              <th>Image</th>
+              <th>Size</th>
+              <th>Actions</th>
+            </tr>
+            <tr *ngFor="let variant of selectedToView.variants; index as i">
+              <td style="width: 100px; height: 100px"><img [src]="buildUrl(variant.path.slice(4))" class="img-fluid"></td>
+              <td>{{variant.size}}</td>
+              <td><a [href]="buildUrl(selectedVariant.path.slice(4))" target="_blank" class="btn d-block btn-sm btn-primary">Download</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
     </div>
     <div class="col-md-4 col-sm-12">
       <div class="card">
