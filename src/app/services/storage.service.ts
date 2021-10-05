@@ -172,6 +172,7 @@ export class StorageService {
       });
     }
     for (let i = 0; i < mT.references.length; i++) {
+      console.log("found ref", mT.references[i]);
       this.arycIndex.categories[this.findArycIndexedCategory(mT.references[i].category)].references.push(mT.references[i]);
     }
     for (let i = 0; i < mT.submissions.length; i++) {

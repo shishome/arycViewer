@@ -29,7 +29,7 @@
               <th>Size</th>
               <th>Actions</th>
             </tr>
-            <tr *ngFor="let variant of selectedToView.variants; index as i">
+            <tr *ngFor="let variant of selectedToView?.variants; index as i">
               <td style="width: 100px; height: 100px"><img [src]="buildUrl(variant.path.slice(4))" class="img-fluid"></td>
               <td>{{variant.size}}</td>
               <td><a [href]="buildUrl(selectedVariant.path.slice(4))" target="_blank" class="btn d-block btn-sm btn-primary">Download</a></td>

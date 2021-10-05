@@ -1,0 +1,30 @@
+<section class="container">
+  <div class="row">
+    <!--
+    <div class="col-md-2 col-sm-12">
+
+    </div>
+    -->
+
+    <div class="col-md-12 col-sm-12" *ngIf="selInRefLen > 0">
+      <h1>References ({{selectedIndex?.references?.length}})</h1>
+      <div class="card" *ngFor="let reference of selectedIndex?.references">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{reference.url}}" class="img-fluid">
+            </div>
+            <div class="col-md-9">
+              <a href="{{reference.url}}" class="btn btn-warning" style="display: block" target="_blank">Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+      <h1>Submissions</h1>
+<list-module *ngIf="selectedIndex != undefined" [displayArray]="selectedIndex.submissions"></list-module>
+    </div>
+  </div>
+</section>

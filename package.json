@@ -1,6 +1,6 @@
 {
   "name": "aryc-viewer",
-  "version": "0.0.1",
+  "version": "4.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

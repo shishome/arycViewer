@@ -10,6 +10,8 @@ import {MarkdownModule} from "ngx-markdown";
 import { ListComponent } from './modules/list/list.component';
 import { FirstTimeComponent } from './pages/first-time/first-time.component';
 import { ViewComponent } from './pages/view/view.component';
+import { CategoryComponent } from './pages/category/category.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { ViewComponent } from './pages/view/view.component';
     AboutComponent,
     ListComponent,
     FirstTimeComponent,
-    ViewComponent
+    ViewComponent,
+    CategoryComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
