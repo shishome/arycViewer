@@ -4,6 +4,7 @@ import {Submission} from "../../interfaces/submission";
 import {ActivatedRoute} from "@angular/router";
 import {IndexedMaster} from "../../interfaces/indexed-master";
 import {IndexedCategory} from "../../interfaces/indexed-category";
+import {RestService} from "../../services/rest.service";
 
 @Component({
   selector: 'app-category',
@@ -17,7 +18,8 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     public storage: StorageService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public rest: RestService
   ) {
     this.loadingArray = this.initLoadByDate();
     this.category = this.route.snapshot.params['id'];
@@ -35,7 +37,7 @@ export class CategoryComponent implements OnInit {
   loadingArray: Array<number>;
 
   ngOnInit(): void {
-
+    this.rest.setTitle("Category Browser")
   }
 
   initLoadByDate(): Array<number>{

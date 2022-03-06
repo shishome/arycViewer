@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {Submission} from "../../interfaces/submission";
+import {RestService} from "../../services/rest.service";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import {Submission} from "../../interfaces/submission";
 export class HomeComponent implements OnInit {
 
   constructor(
-    public storage: StorageService
+    public storage: StorageService,
+    private rest: RestService
   ) {
     this.loadingArray = this.initLoadByDate();
   }
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Loaded Home.");
+    this.rest.setTitle("Browser");
   }
 
   initLoadByDate(): Array<number>{

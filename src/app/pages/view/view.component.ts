@@ -39,6 +39,7 @@ export class ViewComponent implements OnInit {
     }else{
       this.selectedVariant = this.selectedToView.mainFile;
       this.readyForRender = true;
+      this.rest.setTitle(this.selectedToView.submissionId);
     }
 
 
