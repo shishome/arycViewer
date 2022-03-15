@@ -47,7 +47,7 @@ export class ViewComponent implements OnInit {
   }
 
   buildUrl(uri: string): string{
-    return (environment.artDirectory+uri).replace("//", "/");
+    return (environment.artDirectory+uri.slice(0,1))
   }
 
   ngOnInit(): void {
