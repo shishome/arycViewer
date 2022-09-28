@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {Submission} from "../../interfaces/submission";
 import {Router} from "@angular/router";
@@ -21,6 +21,22 @@ export class ListComponent implements OnInit {
     public storage: StorageService,
     public router: Router
   ) { }
+
+  @HostListener('document:keyup', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(event.code === '37'){
+      //back
+      if(this.page != 0){
+        this.loadPage(this.page - 1);
+      }
+    }
+    if(event.code === '39'){
+      //forward
+      if(this.page != this.storage.pages.length - 1){
+        this.loadPage(this.page + 1);
+      }
+    }
+  }
 
   ngOnInit(): void {
     console.log("Loaded list")

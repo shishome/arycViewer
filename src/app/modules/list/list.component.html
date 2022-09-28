@@ -1,6 +1,6 @@
 <div class="row">
   <div [classList]="canDisplay(n)" style="margin-bottom: 0.5em" *ngFor="let n of storage.pages[page]; index as i">
-    <div class="card image-holder" (click)="loadView(n)" style="width: 100%">
+    <div class="card image-holder" (click)="loadView(n)" style="width: 100%" [routerLink]="'/view/' + n.submissionId">
       <div class="card-img-top img-fluid" [style]="'background-image: url(\''+n.croppedFile+'\'); background-size: cover; background-position: top center; background-repeat: no-repeat; height: 150px;'"></div>
       <p class="text-center" style="margin-top: 5px;"><span class="badge rounded-pill bg-primary">{{n.artist}}</span>&nbsp;<span class="badge rounded-pill bg-secondary">{{n.category}}</span>&nbsp;<span class="badge rounded-pill bg-info">{{n.folder}}</span>&nbsp;<span *ngIf="n.r18" class="badge rounded-pill bg-danger">R18</span>&nbsp;<span *ngIf="n.hide" class="badge rounded-pill bg-dark">Hidden</span></p>
 
