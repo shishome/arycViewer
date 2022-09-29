@@ -25,13 +25,13 @@ export class ListComponent implements OnInit {
   @HostListener('window:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     console.log(event)
-    if(event.code === '37'){
+    if(event.key === 'ArrowLeft'){
       //back
       if(this.page != 0){
         this.loadPage(this.page - 1);
       }
     }
-    if(event.code === '39'){
+    if(event.key === 'ArrowRight'){
       //forward
       if(this.page != this.storage.pages.length - 1){
         this.loadPage(this.page + 1);
