@@ -22,8 +22,9 @@ export class ListComponent implements OnInit {
     public router: Router
   ) { }
 
-  @HostListener('document:keyup', ['$event'])
+  @HostListener('window:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
+    console.log(event)
     if(event.code === '37'){
       //back
       if(this.page != 0){
