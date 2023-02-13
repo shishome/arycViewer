@@ -2,3 +2,6 @@
 body {
   background-image: linear-gradient(90deg,goldenrod,#dc307c) !important;
 }
+.ellipses {
+  display: none;
+}

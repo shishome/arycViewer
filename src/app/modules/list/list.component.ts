@@ -1,7 +1,7 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {Submission} from "../../interfaces/submission";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router, UrlSegment} from "@angular/router";
 
 @Component({
   selector: 'list-module',
@@ -12,19 +12,19 @@ export class ListComponent implements OnInit {
 
   @Input() displayArray: Array<any> = [];
 
-  displayInterval: number = 20;
+  displayInterval: number = 16;
   displayStart: number = 0;
   displayEnd: number = this.displayInterval;
   page: number = 0;
 
   constructor(
     public storage: StorageService,
-    public router: Router
+    public router: Router,
+    public aRouter: ActivatedRoute
   ) { }
 
   @HostListener('window:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    console.log(event)
     if(event.key === 'ArrowLeft'){
       //back
       if(this.page != 0){
@@ -40,8 +40,14 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Loaded list")
+    //console.log("Loaded list")
     this.storage.pages = this.storage.paginate(this.displayArray, this.displayInterval);
+    let n = this.aRouter.snapshot.params.num || null;
+    if(n !== null){
+      console.log("found a page to navigate to ", n);
+      this.loadPage(parseInt(n));
+    }
+
   }
 
   canDisplay(nmb: Submission) {
@@ -64,6 +70,23 @@ export class ListComponent implements OnInit {
 
   loadPage(i: number) {
     this.page = i;
+    let paths: string[] = [];
+    this.aRouter.url.forEach((a) => {
+      a.forEach((b) => {
+        paths.push(b.path)
+      })
+    })
+    if(this.page === 0){
+      this.router.navigate([paths.join("/").split("page/")[0]]);
+      return true;
+    }
+    let n = this.aRouter.snapshot.params.num || null;
+    if(n === null) {
+        this.router.navigate([paths.join("/")+'/page/'+(i)]);
+    }else{
+      this.router.navigate([paths.join("/").split("page/")[0]+'page/'+(i)])
+    }
+    return true;
   }
 
   loadView(n: Submission) {

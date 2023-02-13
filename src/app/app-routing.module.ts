@@ -12,6 +12,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'page/:num',
+    component: HomeComponent
+  },
+  {
     path: 'about',
     component: AboutComponent
   },
@@ -25,6 +29,10 @@ const routes: Routes = [
   },
   {
     path: 'category/:id',
+    component: CategoryComponent
+  },
+  {
+    path: 'category/:id/page/:num',
     component: CategoryComponent
   }
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {Submission} from "../../interfaces/submission";
 import {RestService} from "../../services/rest.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public storage: StorageService,
-    private rest: RestService
+    private rest: RestService,
+    private router: ActivatedRoute
   ) {
     this.loadingArray = this.initLoadByDate();
   }
