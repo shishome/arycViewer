@@ -2,6 +2,7 @@ import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {StorageService} from "../../services/storage.service";
 import {Submission} from "../../interfaces/submission";
 import {ActivatedRoute, Router, UrlSegment} from "@angular/router";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'list-module',
@@ -11,11 +12,14 @@ import {ActivatedRoute, Router, UrlSegment} from "@angular/router";
 export class ListComponent implements OnInit {
 
   @Input() displayArray: Array<any> = [];
+  @Input() isSearch: boolean = false;
 
   displayInterval: number = 16;
   displayStart: number = 0;
   displayEnd: number = this.displayInterval;
   page: number = 0;
+
+  abs = Math.abs;
 
   constructor(
     public storage: StorageService,

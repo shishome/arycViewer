@@ -38,6 +38,8 @@ export class StorageService {
 
   public selectedToView: Submission[] = [];
 
+  searchText: string = '';
+
 
 
   constructor(

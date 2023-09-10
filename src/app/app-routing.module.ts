@@ -5,6 +5,7 @@ import {AboutComponent} from "./pages/about/about.component";
 import {FirstTimeComponent} from "./pages/first-time/first-time.component";
 import {ViewComponent} from "./pages/view/view.component";
 import {CategoryComponent} from "./pages/category/category.component";
+import {SearchComponent} from "./pages/search/search.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: 'first-time',

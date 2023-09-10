@@ -1,0 +1,19 @@
+<section class="container">
+
+  <div class="row">
+    <div class="col-md-12" style="margin-bottom: 0.5em;">
+      <input class="form-control" style="display: block;" type="text" placeholder="Search" name="searcher" [(ngModel)]="storage.searchText">
+    </div>
+  </div>
+
+  <div class="row">
+    <!--
+    <div class="col-md-2 col-sm-12">
+
+    </div>
+    -->
+    <div class="col-md-12 col-sm-12" *ngIf="storage.searchText.length > 0">
+      <list-module [displayArray]="storage.arycMaster.submissions" [isSearch]="true"></list-module>
+    </div>
+  </div>
+</section>

@@ -12,6 +12,9 @@ import { FirstTimeComponent } from './pages/first-time/first-time.component';
 import { ViewComponent } from './pages/view/view.component';
 import { CategoryComponent } from './pages/category/category.component';
 import {CommonModule} from "@angular/common";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {FormsModule} from "@angular/forms";
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import {CommonModule} from "@angular/common";
     ListComponent,
     FirstTimeComponent,
     ViewComponent,
-    CategoryComponent
+    CategoryComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MarkdownModule.forRoot()
+    Ng2SearchPipeModule,
+    MarkdownModule.forRoot(),
+    FormsModule
   ],
   providers: [
     Title

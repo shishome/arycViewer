@@ -3,7 +3,7 @@
     <div class="offset-2 col-md-8">
       <div class="card" style="margin-top: 15%">
         <div class="card-body">
-          <h1 style="font-size: 72px">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 24px">v4.6.0</span> </small> </h1>
+          <h1 style="font-size: 72px">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 24px">v4.7.0</span> </small> </h1>
           <div>
             <div class="row">
               <div class="col-5" style="text-align: right">
@@ -53,7 +53,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-custom-yuuk">
       <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:///" routerLink="/">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 8px">v4.6.0</span></small></a>
+        <a class="navbar-brand" href="javascript:///" routerLink="/">Yuu.im <small style="font-weight: 100 !important;">art archive <span style="font-size: 8px">v4.7.0</span></small></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,6 +62,9 @@
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a class="nav-link" href="javascript:///" (click)="loadCategory('/')">Index</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/search">Search</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">By Character</a>
@@ -73,9 +76,6 @@
               <a class="nav-link" href="javascript:///" routerLink="/about">About</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-sm-2" type="text" placeholder="Search">
-          </form>
         </div>
       </div>
     </nav>
